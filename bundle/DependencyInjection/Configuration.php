@@ -11,7 +11,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->validate()
-            ->always(function($v){
+            ->always(function ($v) {
                 if (empty($v['location_mappings'])) {
                     unset($v['location_mappings']);
                 }

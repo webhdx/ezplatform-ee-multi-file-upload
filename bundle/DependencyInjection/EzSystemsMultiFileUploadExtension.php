@@ -28,7 +28,7 @@ class EzSystemsMultiFileUploadExtension extends ConfigurableExtension implements
      */
     public function loadInternal(array $config, ContainerBuilder $container)
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('default_settings.yml');
         $loader->load('services.yml');
 
@@ -65,7 +65,7 @@ class EzSystemsMultiFileUploadExtension extends ConfigurableExtension implements
         // Directories where public resources are stored (relative to web/ directory).
         $container->setParameter('multifile_upload.public_dir', 'bundles/ezsystemsmultifileupload');
 
-        $yuiConfigFile = __DIR__.'/../Resources/config/yui.yml';
+        $yuiConfigFile = __DIR__ . '/../Resources/config/yui.yml';
         $config = Yaml::parse(file_get_contents($yuiConfigFile));
         $container->prependExtensionConfig('ez_platformui', $config);
         $container->addResource(new FileResource($yuiConfigFile));
@@ -76,7 +76,7 @@ class EzSystemsMultiFileUploadExtension extends ConfigurableExtension implements
      */
     private function prependCss(ContainerBuilder $container)
     {
-        $cssConfigFile = __DIR__.'/../Resources/config/css.yml';
+        $cssConfigFile = __DIR__ . '/../Resources/config/css.yml';
         $config = Yaml::parse(file_get_contents($cssConfigFile));
         $container->prependExtensionConfig('ez_platformui', $config);
         $container->addResource(new FileResource($cssConfigFile));
